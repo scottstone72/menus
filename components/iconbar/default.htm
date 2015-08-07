@@ -1,0 +1,13 @@
+<div class="icon-bar {{ __SELF__.iconbarClasses }}">
+
+
+    {% for key,item in __SELF__.menuItems[__SELF__.alias] %}
+
+    <a class="item item-{{ key }}" href="{{ item.url }}">
+        <i class="fa fa-{{ __SELF__.icons[key] }}"></i>
+        <label>{{ item.title }}</label>
+    </a>
+
+    {% endfor %}
+
+</div>

@@ -1,0 +1,13 @@
+<ul class="side-nav">
+
+        {% for key,item in __SELF__.menuItems[__SELF__.alias] %}
+
+        <li role="menuitem">
+            <a class="item item-{{ key }}" href="{{ item.url }}">
+                <i class="fa fa-{{ __SELF__.icons[key] }}"></i>
+                {{ item.title }}
+        </a></li>
+
+        {% endfor %}
+
+</ul>

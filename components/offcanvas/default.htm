@@ -1,0 +1,61 @@
+
+<div class="off-canvas-wrap" data-offcanvas id="{{ __SELF__.alias }}">
+
+    <div class="inner-wrap">
+        <nav class="tab-bar">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </section>
+
+            <section class="middle tab-bar-section">
+                <h1 class="title">Foundation</h1>
+            </section>
+
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list {{ class }}">
+                {% for item in __SELF__.menuItems[__SELF__.alias] %}
+                <li
+                        class="{{ item.isActive or item.isChildActive ? 'active' : '' }}
+            {{ item.items ? 'has-dropdown' : '' }}"
+                        >
+                    <a
+                            {% if item.items %}class="dropdown-toggle" data-toggle="dropdown"{% endif %}
+                            href="{{ item.url }}"
+                            >
+                        {{ item.title }}
+
+                        {% if item.items %}<span class="caret"></span>{% endif %}
+                    </a>
+
+                    {% if item.items %}
+                    {% partial 'menu-items' items=item.items class='dropdown-menu' %}
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </aside>
+
+        <section class="main-section">
+            <br>
+            <header id="layout-header">
+                {% partial 'header' %}
+            </header>
+
+            <!-- Content -->
+            <section id="layout-content">
+                {% page %}
+            </section>
+
+
+            <!-- Footer -->
+            <footer id="layout-footer">
+                {% partial "footer" %}
+            </footer>
+        </section>
+
+        <a class="exit-off-canvas"></a>
+
+    </div>
+</div>

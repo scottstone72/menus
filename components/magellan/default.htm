@@ -1,0 +1,11 @@
+<div data-magellan-expedition="fixed">
+    <dl class="sub-nav">
+        {% for key,item in __SELF__.menuItems[__SELF__.alias] %}
+
+        <dd class="{{ item.isActive ? 'active' : '' }}"
+            data-magellan-arrival="fake{{key + 1}}"><a href="{{ item.url }}">{{ item.title }}</a></dd>
+
+        {% endfor %}
+
+    </dl>
+</div>
