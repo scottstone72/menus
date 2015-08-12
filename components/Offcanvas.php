@@ -4,7 +4,6 @@ use Cms\Classes\ComponentBase;
 
 class Offcanvas extends ComponentBase
 {
-    protected $menuObj;
 
     /**
      * Holds our menu items
@@ -36,9 +35,9 @@ class Offcanvas extends ComponentBase
      * Set the navigation
      */
     public function onRun() {
-        $menuObj = $this;
+
         // Set the menu items
-        $menuObj->menuItems[$this->alias] = $this->page['menuItems'];
+        $this->menuItems[$this->alias] = $this->page['menuItems'];
     }
 
 }

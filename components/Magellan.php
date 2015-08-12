@@ -4,7 +4,6 @@ use Cms\Classes\ComponentBase;
 
 class Magellan extends ComponentBase
 {
-    protected $menuObj;
 
     /**
      * Holds our menu items
@@ -39,13 +38,12 @@ class Magellan extends ComponentBase
 
     public function onRun() {
 
-        $menuObj = $this;
         // Set the menu items
-        $menuObj->menuItems[$this->alias] = $this->page['menuItems'];
-        $menuObj->iconbarClasses = $this->property('iconbarClasses');
+        $this->menuItems[$this->alias] = $this->page['menuItems'];
+        $this->iconbarClasses = $this->property('iconbarClasses');
         $iconStr = $this->property('icons');
         // Convert string to array for view
-        $menuObj->icons = explode(' ', $iconStr);
+        $this->icons = explode(' ', $iconStr);
 
         $this->addJs('/plugins/stone/menus/assets/sidenav_magellan.js');
     }

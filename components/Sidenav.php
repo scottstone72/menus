@@ -4,7 +4,6 @@ use Cms\Classes\ComponentBase;
 
 class Sidenav extends ComponentBase
 {
-    protected $menuObj;
 
     /**
      * Holds our menu items
@@ -42,12 +41,12 @@ class Sidenav extends ComponentBase
      * Set the navigation
      */
     public function onRun() {
-        $menuObj = $this;
+
         // Set the menu items
-        $menuObj->menuItems[$this->alias] = $this->page['menuItems'];
+        $this->menuItems[$this->alias] = $this->page['menuItems'];
         $iconStr = $this->property('icons');
         // Convert string to array for view
-        $menuObj->icons = explode(' ', $iconStr);
+        $this->icons = explode(' ', $iconStr);
     }
 
 }

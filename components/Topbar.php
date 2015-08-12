@@ -5,7 +5,11 @@ use Cms\Classes\ComponentBase;
 class Topbar extends ComponentBase
 {
 
-    protected $menuObj;
+//    /**
+//     *
+//     * @var Singleton
+//     */
+//    private static $instance;
 
     /**
      * Holds our menu items
@@ -54,13 +58,13 @@ class Topbar extends ComponentBase
      * Set the navigation
      */
     public function onRun() {
-        $menuObj = $this;
+
         // Set the menu items
-        $menuObj->menuItems[$this->alias] = $this->page['menuItems'];
+        $this->menuItems[$this->alias] = $this->page['menuItems'];
         // Set the positioning
-        $menuObj->topbarClasses = $this->property('topbarClasses');
+        $this->topbarClasses = $this->property('topbarClasses');
         // Set custom text
-        $menuObj->navTitle = $this->property('navTitle');
+        $this->navTitle = $this->property('navTitle');
     }
 
 }
